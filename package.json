@@ -128,6 +128,7 @@
     "parse-filepath": "1.0.2",
     "postcss": "^8.4.21",
     "postcss-comment": "^2.0.0",
+    "postcss-html": "^1.5.0",
     "prettier": "^2.7.1",
     "promise-worker": "^2.0.1",
     "rollup-plugin-analyzer": "^4.0.0",
