@@ -19,6 +19,7 @@
             class="ml-1 text-gray-400 group-hover:text-pink-500 dark:text-gray-600 transition-colors"
           />
         </div>
+        <div>hi</div>
         <div class="message">
           {{ notification.message }}
         </div>
