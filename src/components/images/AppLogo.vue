@@ -29,7 +29,7 @@ const pathFillColor = computed(() => {
   return 'url(#paint0_linear_564_1779)'; // default color
 });
 const logoText = computed(() => {
-  if (props.isFooter) return 'regenerative finance'; // white color
+  if (props.isFooter) return 'regenerative<br>finance'; // white color
   return 'regenerative'; // default color
 });
 </script>
@@ -39,8 +39,8 @@ const logoText = computed(() => {
     <svg
       id="logo"
       class="mr-2 logo-svg"
-      width="22"
-      height="20"
+      :width="props.isFooter ? 44 : 22"
+      :height="props.isFooter ? 40 : 20"
       viewBox="0 0 22 20"
       xmlns="http://www.w3.org/2000/svg"
       aria-labelledby="logoTitle logoDesc"
@@ -81,7 +81,7 @@ const logoText = computed(() => {
         </linearGradient>
       </defs>
     </svg>
-    {{ logoText }}
+    <div v-html="logoText"></div>
   </div>
 </template>
 
