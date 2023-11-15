@@ -92,7 +92,7 @@ const { networkSlug } = useNetwork();
             </BalLink>
 
             <BalLink
-              :href="EXTERNAL_LINKS.Balancer.Forum"
+              :href="EXTERNAL_LINKS.Balancer.Placeholder"
               external
               noStyle
               class="group link link--external"
@@ -101,7 +101,7 @@ const { networkSlug } = useNetwork();
             </BalLink>
 
             <BalLink
-              :href="EXTERNAL_LINKS.Balancer.Forum"
+              :href="EXTERNAL_LINKS.Balancer.Placeholder"
               external
               noStyle
               class="group link link--external"
@@ -110,7 +110,7 @@ const { networkSlug } = useNetwork();
             </BalLink>
 
             <BalLink
-              :href="EXTERNAL_LINKS.Balancer.Forum"
+              :href="EXTERNAL_LINKS.Balancer.Placeholder"
               external
               noStyle
               class="group link link--external"
@@ -189,7 +189,7 @@ const { networkSlug } = useNetwork();
 
 <style scoped>
 footer {
-  @apply bg-[#001C52] dark:bg-gray-900;
+  @apply bg-primary-refi dark:bg-gray-900;
 }
 
 footer :deep(.logotype) {

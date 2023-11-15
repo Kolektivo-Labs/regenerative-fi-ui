@@ -25,12 +25,12 @@ const props = withDefaults(defineProps<Props>(), {
  * COMPUTED
  */
 const pathFillColor = computed(() => {
-  if (props.isFooter) return '#ffffff'; // white color
-  return 'url(#paint0_linear_564_1779)'; // default color
+  if (props.isFooter) return '#ffffff';
+  return 'url(#paint0_linear_564_1779)';
 });
 const logoText = computed(() => {
-  if (props.isFooter) return 'regenerative<br>finance'; // white color
-  return 'regenerative'; // default color
+  if (props.isFooter) return 'regenerative<br>finance';
+  return 'regenerative';
 });
 </script>
 

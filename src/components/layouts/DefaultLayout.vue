@@ -21,7 +21,7 @@ import AppNav from '@/components/navs/AppNav/AppNav.vue';
 }
 
 .app-body {
-  @apply pb-8 bg-[#F3FAFF];
+  @apply pb-8 bg-container;
 
   min-height: calc(100vh - 2rem);
 }

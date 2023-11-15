@@ -48,9 +48,8 @@ const classes = computed(() => ({
 
 .desktop-link-item.router-link-active::before {
   content: '';
-  border-color: #0468be;
 
-  @apply w-full block absolute top-0 left-0;
+  @apply w-full block absolute top-0 left-0 border-refi-text;
 
   transform: translate3d(0, 0, 0);
 }
@@ -69,7 +68,7 @@ const classes = computed(() => ({
 }
 
 .desktop-link-item.router-link-active {
-  @apply text-[#0468BE] dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors;
+  @apply text-refi-text dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors;
 }
 
 .desktop-link-item:hover::before {

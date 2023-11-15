@@ -38,6 +38,3 @@ stats.html
 
 #Auto generated component types
 components.d.ts
-
-#ignore huskyrc
-.huskyrc

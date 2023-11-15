@@ -1,7 +1,5 @@
 .social-icon .logo {
-  fill: #001c52;
-
-  @apply transition-all;
+  @apply transition-all fill-primary-refi;
 }
 
 .dark .social-icon .logo {
