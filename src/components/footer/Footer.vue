@@ -26,7 +26,7 @@ const { networkSlug } = useNetwork();
             class="font-medium link"
             :to="{ name: 'home', params: { networkSlug } }"
           >
-            <AppLogo class="mb-4" :isFooter="true" />
+            <AppLogo class="mb-4" color="#ffffff" :text="true" size="large" />
           </router-link>
 
           <div class="flex md:hidden flex-col gap-2">

@@ -4,7 +4,9 @@
  */
 type Props = {
   forceDark?: boolean;
-  isFooter?: boolean;
+  color?: string;
+  text?: boolean;
+  size?: string;
 };
 
 /**
@@ -12,7 +14,9 @@ type Props = {
  */
 const props = withDefaults(defineProps<Props>(), {
   forceDark: false,
-  isFooter: false,
+  color: '',
+  text: false,
+  size: 'small',
 });
 
 /**
@@ -24,12 +28,8 @@ const props = withDefaults(defineProps<Props>(), {
 /**
  * COMPUTED
  */
-const pathFillColor = computed(() => {
-  if (props.isFooter) return '#ffffff';
-  return 'url(#paint0_linear_564_1779)';
-});
 const logoText = computed(() => {
-  if (props.isFooter) return 'regenerative<br>finance';
+  if (props.text) return 'regenerative<br>finance';
   return 'regenerative';
 });
 </script>
@@ -39,8 +39,8 @@ const logoText = computed(() => {
     <svg
       id="logo"
       class="mr-2 logo-svg"
-      :width="props.isFooter ? 44 : 22"
-      :height="props.isFooter ? 40 : 20"
+      :width="props.size == 'large' ? 44 : 22"
+      :height="props.size == 'large' ? 40 : 20"
       viewBox="0 0 22 20"
       xmlns="http://www.w3.org/2000/svg"
       aria-labelledby="logoTitle logoDesc"
@@ -65,7 +65,7 @@ const logoText = computed(() => {
       2.43677 7.87107V11.5215C2.43677 12.1935 2.98226 12.7382 3.65516
       12.7382C4.32806 12.7382 4.87355 12.1935 4.87355 11.5215V3.0039C4.87355
       2.33188 5.41904 1.78711 6.09193 1.78711Z"
-        :fill="pathFillColor"
+        :fill="color"
       />
       <defs>
         <linearGradient
