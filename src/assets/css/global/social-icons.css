@@ -13,7 +13,7 @@
 }
 
 .social-icon .bg {
-  fill: #fff; /* gray-900 */
+  fill: #fff;
 
   @apply transition-all;
 }
