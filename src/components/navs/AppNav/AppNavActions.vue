@@ -1,25 +1,21 @@
 <script lang="ts" setup>
-import { computed } from 'vue';
-
 import useBreakpoints from '@/composables/useBreakpoints';
 import { useSidebar } from '@/composables/useSidebar';
 import useWeb3 from '@/services/web3/useWeb3';
 
 import { Goals, trackGoal } from '@/composables/useFathom';
 import AppNavAccountBtn from './AppNavAccountBtn.vue';
-import AppNavNetworkSelect from './AppNavNetworkSelect.vue';
 
 /**
  * COMPOSABLES
  */
 const { isMobile } = useBreakpoints();
-const { account, connector, startConnectWithInjectedProvider } = useWeb3();
+const { account, startConnectWithInjectedProvider } = useWeb3();
 const { setSidebarOpen } = useSidebar();
 
 /**
  * COMPUTED
  */
-const hideNetworkSelect = computed(() => connector.value?.id === 'gnosis');
 
 /**
  * METHODS
@@ -32,9 +28,7 @@ function connectWalletHandler() {
 
 <template>
   <div class="grid grid-rows-1 grid-flow-col gap-2">
-    <!-- <DarkModeToggle v-if="isDesktop" />
-    <AppNavActivityBtn v-if="account" /> -->
-    <AppNavNetworkSelect v-if="!hideNetworkSelect" />
+    <AppNavActivityBtn v-if="account" />
     <AppNavAccountBtn v-if="account" />
     <BalBtn
       v-else

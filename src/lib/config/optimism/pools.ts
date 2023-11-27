@@ -1,4 +1,6 @@
-import { Pools } from '@/types/pools';
+import { CSP_ISSUE_POOL_IDS } from '@/constants/pool-lists/csp-issue';
+import { PoolWarning, Pools } from '@/types/pools';
+import { Network } from '../types';
 
 const pools: Pools = {
   IdsMap: {},
@@ -8,23 +10,48 @@ const pools: Pools = {
     PerPoolInitial: 5,
   },
   BoostsEnabled: true,
-  DelegateOwner: '',
-  ZeroAddress: '',
+  DelegateOwner: '0xba1ba1ba1ba1ba1ba1ba1ba1ba1ba1ba1ba1ba1b',
+  ZeroAddress: '0x0000000000000000000000000000000000000000',
   DynamicFees: {
     Gauntlet: [],
   },
   BlockList: [],
-  IncludedPoolTypes: [],
+  IncludedPoolTypes: [
+    'Weighted',
+    'Stable',
+    'MetaStable',
+    'GyroE',
+    'ComposableStable',
+  ],
   Stable: {
-    AllowList: [],
+    AllowList: [
+      '0x4fd63966879300cafafbb35d157dc5229278ed2300020000000000000000002b', // wEth/rEth
+      '0x7b50775383d3d6f0215a8f290f2c9e2eebbeceb200020000000000000000008b', // wstETH/wETH
+      '0xacfe9b4782910a853b68abba60f3fd8049ffe6380000000000000000000000ff', // USDC/DOLA
+      '0x004700ba0a4f5f22e1e78a277fca55e36f47e09c000000000000000000000104', // rEth/ankrEth
+      '0x9da11ff60bfc5af527f58fd61679c3ac98d040d9000000000000000000000100', // usdc/usdcE/usdt/dai
+      '0xc4ee406970047a70aed14621d97b3b460a7dea0b00000000000000000000010b', // SWEEP/USDC
+    ],
   },
   Investment: {
     AllowList: [],
   },
   Weighted: {
-    AllowList: [],
+    AllowList: [
+      '0x00b82bc5edea6e5e6c77635e31a1a25aad99f881000200000000000000000105', // OVN/wUSD
+      '0xd6e5824b54f64ce6f1161210bc17eebffc77e031000100000000000000000006', // OP/BEETS/BAL
+      '0x39965c9dab5448482cf7e002f583c812ceb53046000100000000000000000003', // WETH/OP/USDC
+      '0xc1f46ce83439886f0ea9c21512b36e7e67239d2c000200000000000000000108', // beets/reth
+    ],
   },
-  Factories: {},
+  Factories: {
+    '0xb08e16cfc07c684daa2f93c70323badb2a6cbfd2': 'metaStable',
+    '0x230a59f4d9adc147480f03b0d3fffecd56c3289a': 'weightedPool',
+    '0xdae7e32adc5d490a43ccba1f0c736033f2b4efca': 'weightedPool',
+    '0x0f3e0c4218b7b0108a3643cfe9d3ec0d4f57c54e': 'weightedPool',
+    '0x043a2dad730d585c44fb79d2614f295d2d625412': 'composableStablePool',
+    '0x9b683ca24b0e013512e2566b68704dbe9677413c': 'gyroE',
+  },
   Stakable: {
     VotingGaugePools: [
       '0x4fd63966879300cafafbb35d157dc5229278ed2300020000000000000000002b',
@@ -46,6 +73,10 @@ const pools: Pools = {
       '0xbec621c9ab4ceddcc2a157ca9b5c475fab65f6a40000000000000000000000f3',
       '0xacfe9b4782910a853b68abba60f3fd8049ffe6380000000000000000000000ff',
       '0x9da11ff60bfc5af527f58fd61679c3ac98d040d9000000000000000000000100',
+      '0x00b82bc5edea6e5e6c77635e31a1a25aad99f881000200000000000000000105',
+      '0xc05ab1b0ad472ce802e2c8db6f23e4a2865fdca6000000000000000000000103',
+      '0x5f8893506ddc4c271837187d14a9c87964a074dc000000000000000000000106',
+      '0xc1f46ce83439886f0ea9c21512b36e7e67239d2c000200000000000000000108',
     ],
     AllowList: [],
   },
@@ -53,7 +84,14 @@ const pools: Pools = {
   BoostedApr: [],
   Metadata: {},
   DisabledJoins: [],
-  BrandedRedirect: {},
+  BrandedRedirect: {
+    Gyro2: 'gyro',
+    Gyro3: 'gyro',
+    GyroE: 'gyro',
+  },
+  Issues: {
+    [PoolWarning.CspPoolVulnWarning]: CSP_ISSUE_POOL_IDS[Network.OPTIMISM],
+  },
 };
 
 export default pools;

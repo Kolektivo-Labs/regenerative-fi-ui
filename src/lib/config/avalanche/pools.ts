@@ -1,6 +1,5 @@
-import { Protocol } from '@/composables/useProtocols';
 import { CSP_ISSUE_POOL_IDS } from '@/constants/pool-lists/csp-issue';
-import { PoolFeature, PoolWarning, Pools } from '@/types/pools';
+import { PoolWarning, Pools } from '@/types/pools';
 import { Network } from '../types';
 
 const pools: Pools = {
@@ -10,7 +9,7 @@ const pools: Pools = {
     PerPool: 10,
     PerPoolInitial: 5,
   },
-  BoostsEnabled: false,
+  BoostsEnabled: true,
   DelegateOwner: '0xba1ba1ba1ba1ba1ba1ba1ba1ba1ba1ba1ba1ba1b',
   ZeroAddress: '0x0000000000000000000000000000000000000000',
   DynamicFees: {
@@ -55,6 +54,9 @@ const pools: Pools = {
       '0x96518f83d66bdc6a5812f01c54f8e022f6796399000200000000000000000020', // btc.b/usd
       '0x1f43a5286c57813f75fb8edeef8b2c5e1878ec2d000100000000000000000025', // 33BTC.b-33USDt-33USDC
       '0x3441a6f48f0f5a1ada460885df5b461deb2ee494000200000000000000000024', // 50BTC.b-50USDC
+      '0x721bd1900aeabc29009b08e44be37529f518f2c2000100000000000000000026', // 33VCHF-33sAVAX-33VEUR
+      '0xb10968b6ca2ea1c25d392a9a990559ed3f686861000200000000000000000028', // 80WAVAX-20USDC
+      '0xab567c27450e3fa1b4ee4e67ca7d1003c49e7ea800020000000000000000002b', // 93BTC.b-7USDC
     ],
   },
   Factories: {
@@ -80,55 +82,13 @@ const pools: Pools = {
       '0x3bde1563903ebb564ca37d5736afbb850929cfd7000200000000000000000017',
       '0x3f1a2c4a3a751f6626bd90ef16e104f0772d4d6b00020000000000000000001b', // 50BTC.b-50bb-a-USD
       '0x96518f83d66bdc6a5812f01c54f8e022f6796399000200000000000000000020',
+      '0x721bd1900aeabc29009b08e44be37529f518f2c2000100000000000000000026',
+      '0x670734d704eb7ef424d75321670f921fbf42e9cf000000000000000000000016',
+      '0xad0e5e0778cac28f1ff459602b31351871b5754a000200000000000000000029',
+      '0x66bb9d104c55861feb3ec3559433f01f6373c96600020000000000000000002a',
     ],
   },
-  Metadata: {
-    '0xa1d14d922a575232066520eda11e27760946c991000000000000000000000012': {
-      name: 'Balancer Boosted Aave v3 USD',
-      hasIcon: false,
-      features: {
-        [PoolFeature.Boosted]: {
-          featureProtocols: [Protocol.Aave],
-        },
-      },
-    },
-    '0xa154009870e9b6431305f19b09f9cfd7284d4e7a000000000000000000000013': {
-      name: 'sAVAX/Boosted Aave v3 WAVAX',
-      hasIcon: false,
-      features: {
-        [PoolFeature.Boosted]: {
-          featureProtocols: [Protocol.Aave],
-        },
-      },
-    },
-    '0xece571847897fd61e764d455dc15cf1cd9de8d6f000000000000000000000014': {
-      name: 'yyAVAX/Boosted Aave v3 WAVAX',
-      hasIcon: false,
-      features: {
-        [PoolFeature.Boosted]: {
-          featureProtocols: [Protocol.Aave],
-        },
-      },
-    },
-    '0x054e7b0c73e1ee5aed6864fa511658fc2b54bcaa000000000000000000000015': {
-      name: 'ggAVAX/Boosted Aave v3 WAVAX',
-      hasIcon: false,
-      features: {
-        [PoolFeature.Boosted]: {
-          featureProtocols: [Protocol.Aave],
-        },
-      },
-    },
-    '0x3f1a2c4a3a751f6626bd90ef16e104f0772d4d6b00020000000000000000001b': {
-      name: 'BTC.b/Boosted Aave V3 USD',
-      hasIcon: false,
-      features: {
-        [PoolFeature.Boosted]: {
-          featureProtocols: [Protocol.Aave],
-        },
-      },
-    },
-  },
+  Metadata: {},
   Deep: [
     '0xa1d14d922a575232066520eda11e27760946c991000000000000000000000012', // Boosted Aave v3 USD
     '0xa154009870e9b6431305f19b09f9cfd7284d4e7a000000000000000000000013', // sAVAX/Boosted Aave v3 WAVAX
@@ -175,6 +135,11 @@ const pools: Pools = {
   },
   Issues: {
     [PoolWarning.CspPoolVulnWarning]: CSP_ISSUE_POOL_IDS[Network.AVALANCHE],
+    [PoolWarning.FxPoolVulnWarning]: [
+      '0x55bec22f8f6c69137ceaf284d9b441db1b9bfedc000200000000000000000011',
+      '0x66bb9d104c55861feb3ec3559433f01f6373c96600020000000000000000002a',
+      '0xad0e5e0778cac28f1ff459602b31351871b5754a000200000000000000000029',
+    ],
   },
 };
 

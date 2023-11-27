@@ -17,8 +17,12 @@ import { mount, MountResult } from './mount-composable-tester';
 import { registerTestPlugins } from './registerTestPlugins';
 import { DeepPartial } from './unit/types';
 import { Router } from 'vue-router';
+import { provideUserData } from '@/providers/user-data.provider';
+import { initOldMulticallerWithDefaultMocks } from '@/dependencies/OldMulticaller.mocks';
 
 export const defaultStakedShares = '5';
+
+initOldMulticallerWithDefaultMocks();
 
 export function provideFakePoolStaking(stackedShares = defaultStakedShares) {
   provide(PoolStakingProviderSymbol, {
@@ -37,6 +41,7 @@ export function mountComposable<R>(
   return mount<R>(callback, {
     provider: () => {
       provideWallets();
+      provideUserData();
       provideUserSettings();
       provideTokenLists();
       provideFakePoolStaking();

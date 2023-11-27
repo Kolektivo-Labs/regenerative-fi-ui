@@ -24,6 +24,7 @@ export const alignItemVariants = {
 
 export const ySpacingVariants = {
   none: 'space-y-0',
+  xs: 'space-y-1',
   sm: 'space-y-2',
   md: 'space-y-4',
   lg: 'space-y-8',
@@ -71,6 +72,30 @@ export const widthVariants = {
   '80': 'w-80',
   '96': 'w-96',
   px: 'w-px',
+};
+
+export const maxWidthVariants = {
+  none: 'max-w-none',
+  xs: 'max-w-xs',
+  sm: 'max-w-sm',
+  md: 'max-w-md',
+  lg: 'max-w-lg',
+  xl: 'max-w-xl',
+  '2xl': 'max-w-2xl',
+  '3xl': 'max-w-3xl',
+  '4xl': 'max-w-4xl',
+  '5xl': 'max-w-5xl',
+  '6xl': 'max-w-6xl',
+  '7xl': 'max-w-7xl',
+  full: 'max-w-full',
+  min: 'max-w-min',
+  max: 'max-w-max',
+  prose: 'max-w-prose',
+  'screen-sm': 'max-w-screen-sm',
+  'screen-md': 'max-w-screen-md',
+  'screen-lg': 'max-w-screen-lg',
+  'screen-xl': 'max-w-screen-xl',
+  'screen-2xl': 'max-w-screen-2xl',
 };
 
 export const textSizeVariants = {

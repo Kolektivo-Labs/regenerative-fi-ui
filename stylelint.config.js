@@ -3,7 +3,6 @@ module.exports = {
     'stylelint-config-standard',
     'stylelint-config-recommended-vue',
     'stylelint-config-tailwindcss',
-    'stylelint-config-prettier',
   ],
   plugins: ['stylelint-prettier'],
   rules: {

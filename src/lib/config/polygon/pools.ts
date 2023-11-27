@@ -1,5 +1,4 @@
-import { Protocol } from '@/composables/useProtocols';
-import { PoolFeature, PoolWarning, Pools } from '@/types/pools';
+import { PoolWarning, Pools } from '@/types/pools';
 import { Network } from '../types';
 import { CSP_ISSUE_POOL_IDS } from '@/constants/pool-lists/csp-issue';
 
@@ -115,6 +114,7 @@ const pools: Pools = {
       '0xc474b8512664edc9e746ee5e786478aea15887d2000000000000000000000c25', // frxETH-WETH-BPT
       '0x8c89fb53d4d83173dd65b7a94569558ce393460f000000000000000000000c26', // FRAX-USDC-BPT
       '0x6da7f1c193ab6c4bd16eb14a6305bba8d25737ff000000000000000000000c29', // DUSD-USDC-BPT
+      '0x6a6525d88de3c2434dc060f54eaec8fdfa12869c000000000000000000000c5e', // 2brl (BRLA)
     ],
   },
   Investment: {
@@ -177,6 +177,76 @@ const pools: Pools = {
       '0x34299dd7f2971ce9673a6c156b9a5a49844492d0000200000000000000000c40', // 50DE-50DAI
       '0x4830eac1aaae42d62d1e596237997158e4beea0f000200000000000000000c42', // 50DE-50TBY
       '0xe93f9dd10b0ba38831cba4d5a9d092e22db130ec000200000000000000000c44', // BPT
+      '0x8a352ffbc8c8bc87d7e33255a34f2cf5543e6416000200000000000000000c46', // 80CNT(NEW)-20WETH
+      '0x3078fcdfe3a34feebcb13bbfc74a02790d0ad1cd000200000000000000000c4d', // WSD
+      '0x80bd7a851d9ca7f2b708aa3d395c64be0bb049b7000200000000000000000c4b', // 1WMATIC-99AVA
+      '0xe4f47361480bc3b37dc2d2842f97dee2da17f31b000200000000000000000c51', // AFSD
+      '0x1d17bfefbf304b04939519b46c4c75fcf4889623000100000000000000000c52', // 15WMATIC-10BAL-15SAND-45GROSH-15TEL
+      '0xafd8a58780f08fdac15c8c36cae7b1d6fa3f7616000100000000000000000c54', // 25WBTC-25SOIL-25WETH-25NEX
+      '0x54c1cd3db3d6eeb1f041d02140b80639068a636c000100000000000000000c55', // 25WMATIC-25WBTC-25WETH-25NEX
+      '0x6e9e1395534cc43b7295ae412e0293b48844dc0e000200000000000000000c56', // 1USDC-99SOL
+      '0x530c6845f4acebc324e1f549589b4944e7b17079000100000000000000000c5a', // 25WBTC-25WETH-25SOL-25NEX
+      '0x6ad06841ce54b8498d7159f50b22ecb05ea46b7c000200000000000000000c59', // 50fireFBX-50fireEP
+      '0x9c362d37a40d0cd3cac9ffc2427eb5239dd4b194000100000000000000000c5c', // 33USDC-33WETH-33DAI
+      '0x9627205fc978b118c2d10a8b7761974a26582d77000200000000000000000c5b', // 70WBTC-30USDC
+      '0x51fc57e13a7837d4890f1bcffbad285b7d00f7c1000200000000000000000c5f', // 80DE-20WBTC
+      '0x3234df8de6108482c3bd24eadcb4ed0f777b113e000200000000000000000c60', // 80DE-20WETH
+      '0x1b82799aefc5049ea30a88b89171702b3cacfa74000200000000000000000c65', // 5020WETH-80BAL-50tetuBAL
+      '0x02db2baa9a2b90b931416703ee83a11943d5c571000200000000000000000c66', // 50wstETH-50MaticX
+      '0x7666f4daca9f9243a796aa429a7f43c77060470a000200000000000000000c68', // 10USDC-90SPHERE
+      '0xaecbdbeb6f4c1e4ee5b65e397249a49691b538fc000100000000000000000c6a', // 20USDC-50PAXG-10DAI-20USDT
+      '0x9105c470449921fb7061efceb318e30662d14621000100000000000000000c6c', // MATIC-ETH-BTC-MAI/StarSeeds-Protocol
+      '0x559abdfcde5d1970dc1c98992742e0beb7441c00000100000000000000000c6b', // TetuQI-VQi-Matic/StarSeeds-Protocol
+      '0xe603104baf3743ce615cce88f08f229f9620c924000200000000000000000c6d', // STARV2-StarSeeds-Protocol
+      '0xafb5d11629f3fe66ff2d2595180c1ed83a5e7b55000100000000000000000c6f', // money-machine-v1-starseeds-protocol
+      '0x1bc9a8f8855ca78896eee5d1d573fb5cbca2ce75000100000000000000000c6e', // LP-Test-StarSeeds-Protocol
+      '0x4a818e84e67866484abbf0003da1bed9cc2bbafc000100000000000000000c71', // TetuBal-BalwETH-Matic-StarSeeds_Protocol
+      '0x11ff73fa7ffa63d3de1d2e1afb77894274259d88000200000000000000000c75', // STARV2-Link/ArbitrageLP/StarSeedsProtocol
+      '0x17abb6ffe47e4ab120aa57de5e1c7fc6fe307633000200000000000000000c74', // STARV2-wstETH/ArbitrageLP/StarSeeds_Protocol
+      '0xb56ff8104cf3e42065b1613b4549aab12fa91646000200000000000000000c73', // STARV2-WBTC-arbitrage/StarSeeds-Protocol
+      '0x2e7f4db55bf11e0d8c25b0007728dfb2d138f904000100000000000000000c72', // STARV2-APR-FARM-V1-StarSeeds_Protocol
+      '0xd6e5704d4b43d79f1ea597a9c36105baf2dea993000100000000000000000c70', // Big-Three-V2-StarSeeds-Protocol
+      '0xf8c6f6223ee9d7fa55a508ef96f951f92f412612000200000000000000000c77', // 20WMATIC-80EAC
+      '0xed6850f0400c111e49ee3f4bea44d19b438b4611000200000000000000000c79', // 2CLP-TVaDAIv2-DAI
+      '0xa5b7c3e5fdd26bb99a50a5dcb32b16bfa5060595000200000000000000000c7a', // JARVIS-ETH 8020
+      '0x99d32658012027ff500a1446c35a8e5419ba45c0000100000000000000000c7e', // 33wstETH-33tetuBAL-BALWETH-33STARV2
+      '0xdc8787134cf477f1e70c5b0ae402e57ea198dbd0000200000000000000000c7d', // STARV2-Tetu/Arbitrage/StarSeeds_Protocol
+      '0xd04ad53b5d81bd9d129aaef7731eee1843c8dae0000200000000000000000c7b', // STARV2-MAI/Arbitrage/StarSeeds_Protocol
+      '0x3443e3942053fc44ee07b7ad62a04276dd52b4a9000200000000000000000c7f', // STARV3-WMATIC/80-20/StarSeeds_Protocol
+      '0x5367e1f7f691c6be07a16ded1c9b05f3cf38b217000200000000000000000c80', // STARV3-WBTC/65-35/StarSeeds_Protocol
+      '0x140bec9e5749dfd6ea04c8587a87027617c381d2000200000000000000000c81', // STARV3-WETH/65-35/StarSeeds_Protocol
+      '0x3f33dc5e2e6dd9c3619ba3aed37f8c5568161ab9000200000000000000000c85', // STARV3-STARV2/3-97/StarSeeds_Protocol
+      '0x376bb22376e0c57b4dd50efee1bd3c986978a490000200000000000000000c88', // STARV3-STARV2/9-91/StarSeeds_Protocol
+      '0x2dc47abce2a3d5644139c663493c2bb825d2b103000200000000000000000c84', // STARV3-LINK/65-35/StarSeeds_Protocol
+      '0x2122186d224a586246a534577aa14c8c77a7a5f2000200000000000000000c82', // 1WMATIC-99waWMATIC
+      '0x84ff1ba4faf7d74bc8e66693b2d3905424b93327000200000000000000000c87', // STARV3-TETU/50-50/StarSeeds_Protocol
+      '0x41682f67b30d011fcb045550d572655b22040985000200000000000000000c83', // STARV3-MAI/50-50/StarSeeds_Protocol
+      '0x122c69609ea77758694050d6aca03dc95cbc6c30000200000000000000000c86', // STARV3-TETUQI/17-83/StarSeeds_Protocol
+      '0x432d58fe7a40c5cf159c229ee5874f1f0ce44c91000100000000000000000c89', // STARV3/FeeV2/StarSeeds_Protocol
+      '0x5cd533140618743be9b2bcbf91f50238f3479578000100000000000000000c8a', // STARV3-TETUBAL-TETUBAL-BALWETH-XTETUBAL-MIMATIC-WMATIC
+      '0x0d8573d0b4542797be945f741cb8e6b7117dc751000100000000000000000c8b', // STARV3-XTETUBAL-BALWETH-USDC/Arbitrage/StarSeeds_Protocol
+      '0x2d753d4ebf91b137b161b69bdb8638cf4b80c4a5000200000000000000000c8d', // 50fireEP-50ICHI_Vault_LP
+      '0x0abc5370a1bced0e78222dba60ca69189aad7ed9000200000000000000000c8c', // STARV3-XTETUBAL-BALWETH/Arbitrage/StarSeeds_Protocol
+      '0xdcd3fc34d581ee474520b0f6bce9412df7d2e32f000200000000000000000c90', // 95DE-5DAI
+      '0x4d1249c87e451de44b5bd7d4f17b2d333b3c3723000200000000000000000c92', // STARV3-xtetuBAL-BALWETH/50-50/StarSeeds_Protocol
+      '0xeba5452e53293d195bf436dc53750c594504b34e000200000000000000000c93', // STARV3-tetuBAL-BALWETH/50-50/StarSeeds_Protocol
+      '0x8d95d14a46b2c535494e725e532b3756e9026c72000200000000000000000c95', // STARV3-FBX/50-50/StarSeeds_Protocol
+      '0x88b657ce391a034939e86d0698574c6b3a3e6365000200000000000000000c96', // STARV3-ICHI_Vault_LP/50-50/StarSeeds_Protocol
+      '0x9c57dc0639523e7cc1dba4846d17d3f31d12f45a000200000000000000000c97', // STARV3-fireEP/50-50/StarSeeds_Protocol
+      '0x91c22f98d8ca24a86a443c122c484ff91e38835b000200000000000000000c98', // STARV3-wstETH/50-50/StarSeeds_Protocol
+      '0x1ae0ae6917f52a40748142f0373859e9635d3396000200000000000000000c99', // STARV3-STARV2/30-70/StarSeeds_Protocol
+      '0xda53afe8ca5f935e19d1af46d7524460cea09862000200000000000000000c9a', // pStorage
+      '0xd2ad70856dab2b68a9c43f63e2211053c2232c31000200000000000000000c9b', // 50GRT-50wPPC
+      '0xdc7623c2c091c8f1f180a20de6443cfe4a8e7da7000200000000000000000c91', // 50GRT-50wPPC
+      '0xaea9eac8fc07ed24502270d59fa41c03575758bb000200000000000000000c9c', // 50USDC-50wPPC
+      '0x51a7c7be986f890faa9de665a8fd7f4d9398d9a1000200000000000000000c9e', // liveRetro-WMATIC/50-50/StarSeeds_Protocol
+      '0x8ea81c2c0dcd0baf5ecbbc2dec334ebd56dec545000200000000000000000c9d', // STARV3-MAI/88-12/StarSeeds_Protocol
+      '0x0156e921739ac090c3717e84d78b64bd08ea94ca000200000000000000000ca0', // STARV3-liveRetro/40-60/StarSeeds_Protocol
+      '0xe2b1b8ae0a5440ee91ebd586506fbb4c0a8500bd000200000000000000000ca1', // oRETRO-WMATIC/50-50/StarSeeds_Protocol
+      '0x17a00f034836c7a9c666cd46086713af3b58a9a5000200000000000000000ca2', // STARV3-oRETRO/40-60/StarSeeds_Protocol
+      '0xda2e07ae9111821dea416ea1fbdaf4d2bd407fbc000200000000000000000ca3', // 50WMATIC-50wPPC
+      '0x46ff08b620b2586fc068ae26b12db4422c405a95000100000000000000000ca4', // bStorage
+      '0x1f93622a4e04c819258d87fc822e4cd20ea1b981000100000000000000000ca5', // 25WBTC-25mooCompoundPolygonUSDC-25ICHI_Vault_LP-25ICHI_Vault_LP
     ],
   },
   Factories: {
@@ -276,196 +346,11 @@ const pools: Pools = {
       '0x8c89fb53d4d83173dd65b7a94569558ce393460f000000000000000000000c26',
       '0x6da7f1c193ab6c4bd16eb14a6305bba8d25737ff000000000000000000000c29',
       '0x70ff0078d55ce9c1a0e668f35eb4400a4300122d000000000000000000000beb',
+      '0x7af62c1ebf97034b7542ccec13a2e79bbcf34380000000000000000000000c13',
     ],
     AllowList: [],
   },
-  Metadata: {
-    '0x48e6b98ef6329f8f0a30ebb8c7c960330d64808500000000000000000000075b': {
-      name: 'Balancer Boosted Aave USD',
-      hasIcon: true,
-      features: {
-        [PoolFeature.Boosted]: {
-          featureProtocols: [Protocol.Aave],
-        },
-      },
-    },
-    '0xb3d658d5b95bf04e2932370dd1ff976fe18dd66a000000000000000000000ace': {
-      name: 'Balancer Boosted Tetu USD',
-      hasIcon: true,
-      features: {
-        [PoolFeature.Boosted]: {
-          featureProtocols: [Protocol.Tetu],
-        },
-      },
-    },
-    '0x71bd10c2a590b5858f5576550c163976a48af906000000000000000000000b27': {
-      name: 'Balancer Boosted Tetu MATIC',
-      hasIcon: true,
-      features: {
-        [PoolFeature.Boosted]: {
-          featureProtocols: [Protocol.Tetu],
-        },
-      },
-    },
-    '0x216690738aac4aa0c4770253ca26a28f0115c595000000000000000000000b2c': {
-      name: 'stMATIC/Boosted Aave v3 WMATIC',
-      hasIcon: false,
-      features: {
-        [PoolFeature.Boosted]: {
-          featureProtocols: [Protocol.Aave],
-        },
-      },
-    },
-    '0xe78b25c06db117fdf8f98583cdaaa6c92b79e917000000000000000000000b2b': {
-      name: 'maticX/Boosted Aave v3 WMATIC',
-      hasIcon: false,
-      features: {
-        [PoolFeature.Boosted]: {
-          featureProtocols: [Protocol.Aave],
-        },
-      },
-    },
-    '0xab269164a10fab22bc87c39946da06c870b172d6000000000000000000000bfc': {
-      name: 'wstETH/Boosted Aave v3 WETH',
-      hasIcon: false,
-      features: {
-        [PoolFeature.Boosted]: {
-          featureProtocols: [Protocol.Aave],
-        },
-      },
-    },
-    '0xf42ed61450458ee4620f5ef4f29adb25a6ef0fb6000000000000000000000bf8': {
-      name: 'frxETH/Boosted Aave v3 WETH',
-      hasIcon: false,
-      features: {
-        [PoolFeature.Boosted]: {
-          featureProtocols: [Protocol.Aave],
-        },
-      },
-    },
-    '0xa8bf1c584519be0184311c48adbdc4c15cb2e8c1000000000000000000000bf6': {
-      name: 'FRAX/Boosted Aave v3 USD',
-      hasIcon: false,
-      features: {
-        [PoolFeature.Boosted]: {
-          featureProtocols: [Protocol.Aave],
-        },
-      },
-    },
-    '0x03090a9811181a2afe830a3a0b467698ccf3a8b1000000000000000000000bf5': {
-      name: 'Balancer Boosted Aave v3 USD',
-      hasIcon: false,
-      features: {
-        [PoolFeature.Boosted]: {
-          featureProtocols: [Protocol.Aave],
-        },
-      },
-    },
-    '0x8fd39252d683fdb60bddd4df4b53c9380b496d59000200000000000000000b45': {
-      name: 'wstETH/Boosted Aave v3 WETH/Boosted Aave v3 USD',
-      hasIcon: false,
-      features: {
-        [PoolFeature.Boosted]: {
-          featureProtocols: [Protocol.Aave],
-        },
-      },
-    },
-    '0x7f4f4942f2a14b6ab7b08b10ada1aacede4ee8d4000200000000000000000b44': {
-      name: 'stMATIC/Boosted Aave v3 wMATIC/Boosted Aave v3 USD',
-      hasIcon: false,
-      features: {
-        [PoolFeature.Boosted]: {
-          featureProtocols: [Protocol.Aave],
-        },
-      },
-    },
-    '0xd2f3b9e67c69762dd1c88f1d3dadd1649a190761000200000000000000000bf7': {
-      name: '2BRL/Boosted Aave v3 USD',
-      hasIcon: false,
-      features: {
-        [PoolFeature.Boosted]: {
-          featureProtocols: [Protocol.Aave],
-        },
-      },
-    },
-    '0xac2cae8d2f78a4a8f92f20dbe74042cd0a8d5af3000000000000000000000be2': {
-      name: 'stMATIC/Boosted Aave v3 WMATIC',
-      hasIcon: false,
-      features: {
-        [PoolFeature.Boosted]: {
-          featureProtocols: [Protocol.Aave],
-        },
-      },
-    },
-    '0x402cfdb7781fa85d52f425352661128250b79e12000000000000000000000be3': {
-      name: 'maticX/Boosted Aave v3 WMATIC',
-      hasIcon: false,
-      features: {
-        [PoolFeature.Boosted]: {
-          featureProtocols: [Protocol.Aave],
-        },
-      },
-    },
-    '0xb266ac3b7c98d7bcb28731dac0ef42dba1b276be000000000000000000000be4': {
-      name: 'truMATIC/Boosted Aave v3 WMATIC',
-      hasIcon: false,
-      features: {
-        [PoolFeature.Boosted]: {
-          featureProtocols: [Protocol.Aave],
-        },
-      },
-    },
-    '0x2645b13fd2c5295296e94a76280b968bdcbbdfed000000000000000000000c11': {
-      name: 'DUSD/Boosted Aave v3 USD',
-      hasIcon: false,
-      features: {
-        [PoolFeature.Boosted]: {
-          featureProtocols: [Protocol.Aave],
-        },
-      },
-    },
-    '0x4a77ef015ddcd972fd9ba2c7d5d658689d090f1a000000000000000000000b38': {
-      name: 'Balancer Boosted WETH',
-      features: {
-        [PoolFeature.Boosted]: {
-          featureProtocols: [],
-        },
-      },
-    },
-    '0xd00f9ca46ce0e4a63067c4657986f0167b0de1e5000000000000000000000b42': {
-      name: 'frxETH/Boosted Aave WETH',
-      hasIcon: false,
-      features: {
-        [PoolFeature.Boosted]: {
-          featureProtocols: [Protocol.Aave],
-        },
-      },
-    },
-    '0xb371aa09f5a110ab69b39a84b5469d29f9b22b76000000000000000000000b37': {
-      name: 'Balancer Boosted USD',
-      features: {
-        [PoolFeature.Boosted]: {
-          featureProtocols: [Protocol.Aave],
-        },
-      },
-    },
-    '0xb973ca96a3f0d61045f53255e319aedb6ed4924000000000000000000000042f': {
-      name: 'Balancer Boosted USD',
-      features: {
-        [PoolFeature.Boosted]: {
-          featureProtocols: [],
-        },
-      },
-    },
-    '0x10b040038f87219d9b42e025e3bd9b8095c87dd9000000000000000000000b11': {
-      name: 'Balancer Boosted Tetu MATIC',
-      features: {
-        [PoolFeature.Boosted]: {
-          featureProtocols: [Protocol.Tetu],
-        },
-      },
-    },
-  },
+  Metadata: {},
   Deep: [
     '0x48e6b98ef6329f8f0a30ebb8c7c960330d64808500000000000000000000075b', // bb-am-USD (polygon)
     '0xb54b2125b711cd183edd3dd09433439d5396165200000000000000000000075e', // miMATIC/bb-am-USD (polygon)
@@ -568,6 +453,18 @@ const pools: Pools = {
       '0xb4670d1389c758e4380c4211bcbc85342688b9c50002000000000000000003d8',
     ],
     [PoolWarning.CspPoolVulnWarning]: CSP_ISSUE_POOL_IDS[Network.POLYGON],
+    [PoolWarning.FxPoolVulnWarning]: [
+      '0x216b176513c500dbe1d677939103e350a9373a390002000000000000000008da',
+      '0x726e324c29a1e49309672b244bdc4ff62a270407000200000000000000000702',
+      '0x7e8c6d9db2d1b522f32d050257df0dc524593a07000200000000000000000c4e',
+      '0x835ec7212c6075b85730d504c8a19a7116db81b3000200000000000000000703',
+      '0x8630bd161689403aea635f830e9ef5496e7e0bc1000200000000000000000c35',
+      '0x882c7a84231484b3e9f3fd45ac04b1eb5d35b076000200000000000000000a91',
+      '0x8a8275eda88a6f4cc2fa6a41837c1b5dc7a3b095000200000000000000000c36',
+      '0xe5093fa1f24619eb16c704a808fad66fb65a1305000200000000000000000c50',
+      '0xe93f9dd10b0ba38831cba4d5a9d092e22db130ec000200000000000000000c44',
+      '0xfd24afa5416c8de94fdbaf344840f524155a4dd00002000000000000000008db',
+    ],
   },
 };
 

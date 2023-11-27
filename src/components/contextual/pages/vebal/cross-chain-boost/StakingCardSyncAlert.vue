@@ -39,7 +39,7 @@ const canShowSyncAlert = computed(() => {
   if (
     isAffectedBy(PoolWarning.PoolProtocolFeeVulnWarning) ||
     isAffectedBy(PoolWarning.CspPoolVulnWarning) ||
-    !gauge
+    !gauge?.gauge.id
   ) {
     return false;
   }
@@ -147,7 +147,7 @@ onMounted(() => {
     </BalAlert>
 
     <CheckpointGaugeModal
-      :poolId="poolAddress"
+      :poolAddress="poolAddress"
       :isVisible="showCheckpointModal"
       @close="showCheckpointModal = false"
       @success="shouldShowWarningAlert = false"

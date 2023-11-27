@@ -8,9 +8,11 @@ import IconTelegram from '../icons/IconTelegram.vue';
 
 import useNetwork from '@/composables/useNetwork';
 
+import { useAppzi } from '@/composables/useAppzi';
 import AppLogo from '../images/AppLogo.vue';
 
 const { networkSlug } = useNetwork();
+const { openNpsModal } = useAppzi();
 </script>
 
 <template>
@@ -165,6 +167,9 @@ const { networkSlug } = useNetwork();
           <div
             class="flex flex-wrap md:order-3 gap-x-3 lg:gap-x-4 gap-y-2 md:justify-end"
           >
+            <p>
+              <button class="policy" @click="openNpsModal">Feedback</button>
+            </p>
             <p>
               <router-link class="policy" :to="{ name: 'terms-of-use' }">
                 {{ $t('policies.termsOfUse') }}

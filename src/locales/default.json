@@ -460,6 +460,7 @@
       "linkText": "Gyroscope website"
     }
   },
+  "feedback": "feedback",
   "fees": "fees",
   "feesManagedByGauntlet": "Liquidity providers earn dynamic swap fees on every swap utilizing the liquidity in this pool. Dynamic swap fees are controlled by governance and are currently set by Gauntlet.",
   "feesTime": "Fees ({0})",
@@ -531,6 +532,7 @@
   "highRiskPool": "This is a higher-risk pool that contains one or more unlisted tokens. A liquidity pool is only as good as its weakest token! If a token were blacklisted, infinitely minted, frozen, or exploited in any other way, the value of this pool could go to 0. Balancer Foundation is never liable for losses incurred through using our UI or the Balancer protocol. Be careful, and do your own research!",
   "home": "Home",
   "hourAbbrev": "h",
+  "howDidWeDo": "How did we do?",
   "incentives": "incentives",
   "incentiveToken": "Incentive token",
   "incentivizedPool": "incentivized pool",
@@ -732,7 +734,7 @@
   "noPriceImpact": "Best price",
   "noPriceImpactTip": "Adding tokens proportionally gets you the best price.",
   "noPriceInfo": "Price information is missing for this pool, since it contains a token not found by our price provider.",
-  "hasNonApprovedRateProviders": "One or more token rate providers associated with tokens in this pool have not been vetted. Investing has been disabled.",
+  "hasNonApprovedRateProviders": "One or more token rate providers associated with tokens in this pool have not been vetted.",
   "noRecentActivity": "Your recent activity will appear here…",
   "noResults": "No results",
   "noResultsTable": {
@@ -912,6 +914,10 @@
       "title": "A vulnerability has been discovered that affects this pool. Existing liquidity providers should remove liquidity immediately. <a href=\"https://forum.balancer.fi/t/vulnerability-found-in-some-pools/5102/1\" target=\"blank\" rel=\"noreferrer\" class=\"underline\">Read more</a>",
       "tooltip": "A vulnerability has been discovered that affects this pool. Existing liquidity providers should remove liquidity immediately.",
       "generalTitle": "A vulnerability has been discovered that affects a number of pools. Existing liquidity providers should remove liquidity immediately."
+    },
+    "fxPoolVulnWarning": {
+      "title": "Xave's FXPools are potentially affected by a bug. Xave recommends that LPs temporarily remove liquidity from this pool. <a href=\"https://twitter.com/XaveFinance/status/1725089131330756628\" target=\"blank\" rel=\"noreferrer\" class=\"underline\">Read more</a>",
+      "tooltip": "Xave's FXPools are potentially affected by a bug. Xave recommends that LPs temporarily remove liquidity from this pool"
     }
   },
   "popularBases": "Popular",
@@ -968,7 +974,9 @@
     "the-graph": "Used to fetch blockchain data from The Graph’s hosted service.",
     "fathom-analytics": "Used to understand user behavior on the site and marketing performance.",
     "TRM-labs": "Used to securely collect wallet addresses and shares it with TRM Labs Inc. for risk and compliance reasons.",
-    "sentry": "Used for error tracking and performance monitoring."
+    "sentry": "Used for error tracking and performance monitoring.",
+    "appzi": "Used to capture and store user feedback from optional surveys",
+    "amazon-web-services": "Used for a variety of infrastructure services, but primarily to fetch and cache blockchain data."
   },
   "settings": "Settings",
   "setUpEthereumWallet": "Balancer is a DeFi app on Ethereum. Set up an Ethereum Wallet to swap and provide liquidity here.",
@@ -1491,7 +1499,8 @@
     "increaseLock": "Increase lock",
     "unlock": "Unlock",
     "sync": "Sync",
-    "userGaugeCheckpoint": "Pool gauge veBAL update"
+    "userGaugeCheckpoint": "Pool gauge veBAL update",
+    "claimSubmission": "Claim submission"
   },
   "transactionDeadline": "Transaction deadline",
   "transactionDeadlineTooltip": "Your swap will expire and not execute if it is pending for more than the selected duration. Only executed transactions incur fees for swaps between ERC-20 tokens.",

@@ -9,6 +9,7 @@ import TelegramIcon from '@/components/_global/icons/brands/TelegramIcon.vue';
 import TwitterIcon from '@/components/_global/icons/brands/TwitterIcon.vue';
 import AppLogo from '@/components/images/AppLogo.vue';
 import { version } from '@/composables/useApp';
+import { useAppzi } from '@/composables/useAppzi';
 import useConfig from '@/composables/useConfig';
 import { Goals, trackGoal } from '@/composables/useFathom';
 import useNetwork from '@/composables/useNetwork';
@@ -28,6 +29,7 @@ const { networkConfig } = useConfig();
 const { networkSlug } = useNetwork();
 const { t } = useI18n();
 const router = useRouter();
+const { openNpsModal } = useAppzi();
 
 /**
  * STATE
@@ -43,7 +45,8 @@ const navLinks = [
 
 const ecosystemLinks = [
   { label: t('docs'), url: 'https://docs.balancer.fi/' },
-  { label: t('tokens'), url: 'https://forum.balancer.fi/' },
+  { label: t('governance'), url: 'https://vote.balancer.fi/#/' },
+  { label: t('analytics'), url: 'https://dune.com/balancer' },
   { label: t('forum'), url: 'https://forum.balancer.fi/' },
   { label: t('support'), url: 'https://forum.balancer.fi/' },
   { label: t('analytics'), url: 'https://forum.balancer.fi/' },
@@ -96,7 +99,7 @@ watch(blockNumber, async () => {
     <div
       class="flex flex-col justify-center px-4 h-20 border-b border-gray-800"
     >
-      <AppLogo forceDark />
+      <AppLogo forceDark color="#ffffff" />
     </div>
 
     <div class="grid mt-2 text-lg grid-col-1">
@@ -123,6 +126,9 @@ watch(blockNumber, async () => {
         {{ link.label }}
         <BalIcon name="arrow-up-right" size="sm" class="ml-1 text-secondary" />
       </BalLink>
+      <span class="px-4 pt-1 capitalize" @click="openNpsModal">{{
+        t('feedback')
+      }}</span>
     </div>
 
     <!-- <div class="px-4 mt-6">

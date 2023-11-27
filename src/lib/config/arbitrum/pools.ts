@@ -1,6 +1,5 @@
-import { Protocol } from '@/composables/useProtocols';
 import { CSP_ISSUE_POOL_IDS } from '@/constants/pool-lists/csp-issue';
-import { PoolFeature, PoolWarning, Pools } from '@/types/pools';
+import { PoolWarning, Pools } from '@/types/pools';
 import { Network } from '../types';
 
 const pools: Pools = {
@@ -25,6 +24,7 @@ const pools: Pools = {
     'Investment',
     'StablePhantom',
     'ComposableStable',
+    'GyroE',
   ],
   Stable: {
     AllowList: [
@@ -69,6 +69,9 @@ const pools: Pools = {
       '0x6b9f3f6b9054a45702d3f2c6e3d32a60204934cb0000000000000000000004a7', // USDF/USDC
       '0xead7e0163e3b33bf0065c9325fc8fb9b18cc82130000000000000000000004a9', // STAR/USDC-BPT
       '0x3f09c77b19ad8bb527355ec32d5ce98421fec2e30000000000000000000004b2', // axlBAL/BAL
+      '0xe6d48f62a7d87e6bd13c283ca55068f0a73e6a5f0000000000000000000004cc', // USDV/FRAX
+      '0xe6fcb0ac7e05196b0870ae2aeb80dc9079ee1a250000000000000000000004cb', // USDV/USDC
+      '0xef093ccfdd4d5a590b028463e0528049939889c90000000000000000000004cf', // SWEEP/USDC
     ],
   },
   Investment: {
@@ -117,6 +120,24 @@ const pools: Pools = {
       '0x85ec6ae01624ae0d2a04d0ffaad3a25884c7d0f30002000000000000000004b6', // 80OVN/20wUSD+
       '0x52b520c7cabf47ffd8c328e597a560493f6bd3740002000000000000000004b8', // 50ARB-50USDC
       '0xb6911f80b1122f41c19b299a69dca07100452bf90002000000000000000004ba', // ECLP-USDC-USDT
+      '0x848a7ff84cf73d2534c3dac6ab381e177a1cff240001000000000000000004bb', // 33108-33WETH-33USDC
+      '0x18339d7ec4599c84067e81c20b012e83c385ba9c0002000000000000000004bd', // 50GOLD-5050wstETH/50-4Pool
+      '0x2e8ea681fd59c9dc5f32b29de31f782724ef4dcb0001000000000000000004bc', // 50GOLD-25USDC-25WSTETH
+      '0x49b2de7d214070893c038299a57bac5acb8b8a340001000000000000000004be', // GOLD-BAL-AURA-wstETH
+      '0x835772bab114563746da80806930a9e37aa853440002000000000000000004c0', // D2D-rETH
+      '0x88e2c969e2a1c69c16d1dcd9f8acde4c6ab3838a0002000000000000000004c1', // 80FOX-20WETH
+      '0xec0448648fb7df7f9345f05ed6fde054a19e24780002000000000000000004c2', // 50wstETH-50USDC
+      '0x79b79bb722de0a3bd4b5261037d5a5026fe59d270002000000000000000004c3', // 10WETH-90noiseGPT
+      '0x051ddfbd30bea7326646bd027a8a7ac0c3626f3c0002000000000000000004c4', // 50wstETH-50WETH
+      '0x7435e7250238e65d8ccb1b6398f402f7cb550d480002000000000000000004c7', // 80WBTC-20USDC
+      '0x8f97c6ddf16f75eefca0faf44864fc1f8fc9a1310002000000000000000004c8', // 50WBTC-50LINK
+      '0xd1882ca6a22f3df54cd675b300b815864de67b200001000000000000000004c9', // Savvy TriCrypto Pool
+      '0x32b1d14c6c31dff0407058586a01614da686dfcc0001000000000000000004ce', // 10BAL-20CRV-20SUSHI-25UNI-25GMX
+      '0xb52bd7459cb4754ec30e5b0691574159fb0812170002000000000000000004cd', // 50USDC-50USDT
+      '0x965353ce4d898e5367d0cdfefb5df1f0dca726690001000000000000000004ca', // 67BAL-29WBTC-4wstETH
+      '0x0755c402ef855046a43459827771147c964a798f0002000000000000000004d2', // 50wstETH-50USDC
+      '0x21841e071de6da9cc0c2927ffbd91469b390add10001000000000000000004d1', // 40WBTC-40WETH-204POOL-BPT
+      '0x9d8dc132625a131dc80ccf49ed9e9998f041a5870001000000000000000004d0', // 25BAL-25AURA-25wstETH-25ARB
     ],
   },
   Factories: {
@@ -136,6 +157,7 @@ const pools: Pools = {
     '0xc7e5ed1054a24ef31d827e6f86caa58b3bc168d7': 'weightedPool', // weighted pool v4
     '0x2498a2b0d6462d2260eac50ae1c3e03f4829ba95': 'composableStablePool', // ComposableStable V4
     '0xa8920455934da4d853faac1f94fe7bef72943ef1': 'composableStablePool', // ComposableStable V5
+    '0xdca5f1f0d7994a32bc511e7dba0259946653eaf6': 'gyroE',
   },
   Stakable: {
     VotingGaugePools: [
@@ -201,144 +223,18 @@ const pools: Pools = {
       '0x0c8972437a38b389ec83d1e666b69b8a4fcf8bfd00000000000000000000049e',
       '0xead7e0163e3b33bf0065c9325fc8fb9b18cc82130000000000000000000004a9',
       '0x6b9f3f6b9054a45702d3f2c6e3d32a60204934cb0000000000000000000004a7',
+      '0x85ec6ae01624ae0d2a04d0ffaad3a25884c7d0f30002000000000000000004b6',
+      '0x004700ba0a4f5f22e1e78a277fca55e36f47e09c000000000000000000000104',
+      '0x835772bab114563746da80806930a9e37aa853440002000000000000000004c0',
+      '0x49b2de7d214070893c038299a57bac5acb8b8a340001000000000000000004be',
+      '0x2e8ea681fd59c9dc5f32b29de31f782724ef4dcb0001000000000000000004bc',
     ],
-    AllowList: [],
+    AllowList: [
+      '0x88e2c969e2a1c69c16d1dcd9f8acde4c6ab3838a0002000000000000000004c1',
+      '0xa1a8bf131571a2139feb79401aa4a2e9482df6270002000000000000000004b4',
+    ],
   },
-  Metadata: {
-    '0x077794c30afeccdf5ad2abc0588e8cee7197b71a000000000000000000000352': {
-      name: 'Balancer Boosted Reaper Granary USD',
-      hasIcon: true,
-      features: {
-        [PoolFeature.Boosted]: {
-          featureProtocols: [Protocol.Reaper],
-        },
-      },
-    },
-    '0xcba9ff45cfb9ce238afde32b0148eb82cbe635620000000000000000000003fd': {
-      name: 'rETH/Boosted Aave v3 WETH',
-      hasIcon: false,
-      features: {
-        [PoolFeature.Boosted]: {
-          featureProtocols: [Protocol.Aave],
-        },
-      },
-    },
-    '0x00fcd3d55085e998e291a0005cedecf58ac14c4000020000000000000000047f': {
-      name: 'STG/Boosted Aave v3 USD',
-      hasIcon: false,
-      features: {
-        [PoolFeature.Boosted]: {
-          featureProtocols: [Protocol.Aave],
-        },
-      },
-    },
-    '0x9fb7d6dcac7b6aa20108bad226c35b85a9e31b63000200000000000000000412': {
-      name: 'wstETH/Boosted Aave v3 WETH/Boosted Aave v3 USD',
-      hasIcon: false,
-      features: {
-        [PoolFeature.Boosted]: {
-          featureProtocols: [Protocol.Aave],
-        },
-      },
-    },
-    '0xee02583596aee94cccb7e8ccd3921d955f17982a00000000000000000000040a': {
-      name: 'Balancer Boosted Aave v3 USD',
-      hasIcon: false,
-      features: {
-        [PoolFeature.Boosted]: {
-          featureProtocols: [Protocol.Aave],
-        },
-      },
-    },
-    '0x5a7f39435fd9c381e4932fa2047c9a5136a5e3e7000000000000000000000400': {
-      name: 'wstETH/Boosted Aave v3 WETH',
-      hasIcon: false,
-      features: {
-        [PoolFeature.Boosted]: {
-          featureProtocols: [Protocol.Aave],
-        },
-      },
-    },
-    '0xd0dc20e6342db2de82692b8dc842301ff9121805000200000000000000000454': {
-      name: 'NFTE/wsteth-Boosted Aave v3 WETH',
-      hasIcon: true,
-      features: {
-        [PoolFeature.Boosted]: {
-          featureProtocols: [Protocol.Aave],
-        },
-      },
-    },
-    '0xbe0f30217be1e981add883848d0773a86d2d2cd4000000000000000000000471': {
-      name: 'rETH/Boosted Aave v3 WETH',
-      hasIcon: false,
-      features: {
-        [PoolFeature.Boosted]: {
-          featureProtocols: [Protocol.Aave],
-        },
-      },
-    },
-    '0x45c4d1376943ab28802b995acffc04903eb5223f000000000000000000000470': {
-      name: 'wstETH/Boosted Aave v3 WETH',
-      hasIcon: false,
-      features: {
-        [PoolFeature.Boosted]: {
-          featureProtocols: [Protocol.Aave],
-        },
-      },
-    },
-    '0xc6eee8cb7643ec2f05f46d569e9ec8ef8b41b389000000000000000000000475': {
-      name: 'Balancer Boosted Aave v3 USD',
-      hasIcon: false,
-      features: {
-        [PoolFeature.Boosted]: {
-          featureProtocols: [Protocol.Aave],
-        },
-      },
-    },
-    '0xbbf9d705b75f408cfcaee91da32966124d2c6f7d00000000000000000000047e': {
-      name: 'DOLA/Boosted Aave v3 USD',
-      hasIcon: false,
-      features: {
-        [PoolFeature.Boosted]: {
-          featureProtocols: [Protocol.Aave],
-        },
-      },
-    },
-    '0x9cebf13bb702f253abf1579294694a1edad00eaa000000000000000000000486': {
-      features: {
-        [PoolFeature.Boosted]: {
-          featureProtocols: [Protocol.Aave],
-        },
-      },
-    },
-    '0xa1ea76c42b2938cfa9abea12357881006c52851300000000000000000000048f': {
-      name: 'DUSD/Boosted Aave v3 USD',
-      hasIcon: false,
-      features: {
-        [PoolFeature.Boosted]: {
-          featureProtocols: [Protocol.Aave],
-        },
-      },
-    },
-    '0xa8af146d79ac0bb981e4e0d8b788ec5711b1d5d000000000000000000000047b': {
-      name: 'Boosted Pool',
-      hasIcon: false,
-      features: {
-        [PoolFeature.Boosted]: {
-          featureProtocols: [],
-        },
-      },
-    },
-    '0x519cce718fcd11ac09194cff4517f12d263be067000000000000000000000382': {
-      name: 'Boosted Pool',
-      hasIcon: false,
-      features: {
-        [PoolFeature.Boosted]: {
-          featureProtocols: [],
-        },
-      },
-    },
-  },
+  Metadata: {},
   Deep: [
     '0x077794c30afeccdf5ad2abc0588e8cee7197b71a000000000000000000000352', // bb-rf-usd (arbitrum)
     '0x519cce718fcd11ac09194cff4517f12d263be067000000000000000000000382', // overnight usd+
@@ -359,6 +255,7 @@ const pools: Pools = {
     '0x00fcd3d55085e998e291a0005cedecf58ac14c4000020000000000000000047f', // 50STG-50bbaUSD
     '0xa1ea76c42b2938cfa9abea12357881006c52851300000000000000000000048f', // DUSD/bbausd
     '0x3cdf30e36154a66a4478e15ed41659b5bb0738f100000000000000000000049b', // DUSD-4POOL-BPT
+    '0xa1a8bf131571a2139feb79401aa4a2e9482df6270002000000000000000004b4',
   ],
   Deprecated: {
     '0x567ecfcb22205d279bb8eed3e066989902bf03d5000000000000000000000452': {

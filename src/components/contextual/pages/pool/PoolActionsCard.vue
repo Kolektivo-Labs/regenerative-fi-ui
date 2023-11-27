@@ -5,7 +5,7 @@ import {
   usePoolHelpers,
   deprecatedDetails,
 } from '@/composables/usePoolHelpers';
-import useNetwork from '@/composables/useNetwork';
+import useNetwork, { isGoerli } from '@/composables/useNetwork';
 import { Pool } from '@/services/pool/types';
 import useWeb3 from '@/services/web3/useWeb3';
 
@@ -50,14 +50,29 @@ const { isAffectedBy } = usePoolWarning(computed(() => props.pool.id));
 const hasBpt = computed((): boolean =>
   bnum(balanceFor(props.pool.address)).gt(0)
 );
-const joinDisabled = computed(
-  (): boolean =>
+
+const _hasNonApprovedRateProviders = computed(() => {
+  const nonApprovedRateProviderExceptions = [
+    // wjAURA-WETH - https://github.com/balancer/frontend-v2/issues/4417
+    '0x68e3266c9c8bbd44ad9dca5afbfe629022aee9fe000200000000000000000512',
+  ];
+  return (
+    hasNonApprovedRateProviders.value &&
+    !nonApprovedRateProviderExceptions.includes(props.pool.id)
+  );
+});
+
+const joinDisabled = computed((): boolean => {
+  if (isGoerli.value) return false;
+
+  return (
     !!deprecatedDetails(props.pool.id) ||
     isJoinsDisabled(props.pool.id) ||
-    hasNonApprovedRateProviders.value ||
+    _hasNonApprovedRateProviders.value ||
     isMigratablePool(props.pool) ||
     shouldDisableJoins.value
-);
+  );
+});
 </script>
 
 <template>
