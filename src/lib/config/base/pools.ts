@@ -3,7 +3,7 @@ import { Pools } from '@/types/pools';
 const pools: Pools = {
   IdsMap: {},
   Pagination: {
-    PerPage: 10,
+    PerPage: 6,
     PerPool: 10,
     PerPoolInitial: 5,
   },

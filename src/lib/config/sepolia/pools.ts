@@ -11,7 +11,7 @@ const pools: Pools = {
     veBAL: '',
   },
   Pagination: {
-    PerPage: 10,
+    PerPage: 6,
     PerPool: 10,
     PerPoolInitial: 5,
   },

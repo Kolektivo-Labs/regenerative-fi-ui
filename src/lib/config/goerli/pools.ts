@@ -31,7 +31,7 @@ const pools: Pools = {
     veBAL: '0xf8a0623ab66f985effc1c69d05f1af4badb01b00000200000000000000000060',
   },
   Pagination: {
-    PerPage: 10,
+    PerPage: 6,
     PerPool: 10,
     PerPoolInitial: 5,
   },

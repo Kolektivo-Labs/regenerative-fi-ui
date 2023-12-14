@@ -1,22 +1,21 @@
 <script setup lang="ts">
 import { useRouter } from 'vue-router';
 
-import HomePageHero from '@/components/heros/HomePageHero.vue';
+import PoolFeatureSelect from '@/components/inputs/PoolFeatureSelect.vue';
 import TokenSearchInput from '@/components/inputs/TokenSearchInput.vue';
 import FeaturedProtocols from '@/components/sections/FeaturedProtocols.vue';
 import PoolsTable from '@/components/tables/PoolsTable/PoolsTable.vue';
 import usePoolFilters from '@/composables/pools/usePoolFilters';
+import usePools from '@/composables/pools/usePools';
 import useBreakpoints from '@/composables/useBreakpoints';
 import useNetwork from '@/composables/useNetwork';
-import usePools from '@/composables/pools/usePools';
-import { lsGet, lsSet } from '@/lib/utils';
 import LS_KEYS from '@/constants/local-storage.keys';
-import { useIntersectionObserver } from '@vueuse/core';
-import { PoolType } from '@/services/pool/types';
-import PoolFeatureSelect from '@/components/inputs/PoolFeatureSelect.vue';
-import { useTokens } from '@/providers/tokens.provider';
-import { PoolAttributeFilter, PoolTypeFilter } from '@/types/pools';
+import { lsGet, lsSet } from '@/lib/utils';
 import UserInvestedInAffectedPoolAlert from '@/pages/recovery-exit/UserInvestedInAffectedPoolAlert.vue';
+import { useTokens } from '@/providers/tokens.provider';
+import { PoolType } from '@/services/pool/types';
+import { PoolAttributeFilter, PoolTypeFilter } from '@/types/pools';
+import { useIntersectionObserver } from '@vueuse/core';
 
 const featuredProtocolsSentinel = ref<HTMLDivElement | null>(null);
 const isFeaturedProtocolsVisible = ref(false);
@@ -60,7 +59,7 @@ const { pools, isLoading, isFetchingNextPage, loadMorePools } = usePools({
 const { upToSmallBreakpoint } = useBreakpoints();
 const { networkSlug, networkConfig } = useNetwork();
 
-const isPaginated = computed(() => pools.value.length >= 10);
+const isPaginated = computed(() => pools.value.length >= 6);
 
 /**
  * METHODS
@@ -115,7 +114,6 @@ watch(poolTypeFilter, newPoolTypeFilter => {
 
 <template>
   <div>
-    <HomePageHero />
     <div class="xl:container xl:px-4 pt-10 md:pt-8 xl:mx-auto">
       <UserInvestedInAffectedPoolAlert />
       <BalStack vertical>

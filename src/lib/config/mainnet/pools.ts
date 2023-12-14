@@ -16,7 +16,7 @@ const pools: Pools = {
     veUSH: '0xd689abc77b82803f22c49de5c8a0049cc74d11fd000200000000000000000524',
   },
   Pagination: {
-    PerPage: 10,
+    PerPage: 6,
     PerPool: 10,
     PerPoolInitial: 5,
   },

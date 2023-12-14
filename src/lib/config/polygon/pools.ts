@@ -1,6 +1,6 @@
+import { CSP_ISSUE_POOL_IDS } from '@/constants/pool-lists/csp-issue';
 import { PoolWarning, Pools } from '@/types/pools';
 import { Network } from '../types';
-import { CSP_ISSUE_POOL_IDS } from '@/constants/pool-lists/csp-issue';
 
 const pools: Pools = {
   IdsMap: {
@@ -19,7 +19,7 @@ const pools: Pools = {
     },
   },
   Pagination: {
-    PerPage: 10,
+    PerPage: 6,
     PerPool: 10,
     PerPoolInitial: 5,
   },
