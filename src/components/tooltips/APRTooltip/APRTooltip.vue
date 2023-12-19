@@ -7,12 +7,11 @@ import { APR_THRESHOLD } from '@/constants/pools';
 import { bnum } from '@/lib/utils';
 import { Pool } from '@/services/pool/types';
 
+import useWeb3 from '@/services/web3/useWeb3';
+import { AprBreakdown } from '@balancer-labs/sdk';
 import StakingBreakdown from './components/StakingBreakdown.vue';
 import VeBalBreakdown from './components/VeBalBreakdown.vue';
 import YieldBreakdown from './components/YieldBreakdown.vue';
-import { AprBreakdown } from '@balancer-labs/sdk';
-import { hasStakingRewards } from '@/composables/useAPR';
-import useWeb3 from '@/services/web3/useWeb3';
 
 /**
  * TYPES
@@ -60,14 +59,7 @@ const totalLabel = computed((): string =>
   <BalTooltip v-if="validAPR" width="64" noPad>
     <template #activator>
       <div class="ml-1">
-        <StarsIcon
-          v-if="hasYieldAPR || hasStakingRewards(apr) || hasVebalAPR"
-          :gradFrom="hasVebalAPR ? 'purple' : 'yellow'"
-          class="-mr-1 h-4"
-          v-bind="$attrs"
-        />
         <BalIcon
-          v-else
           name="info"
           size="sm"
           class="text-gray-400 dark:text-gray-500"

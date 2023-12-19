@@ -82,6 +82,7 @@ module.exports = {
         'primary-refi': '#001C52',
         'accent-refi': '#FA7369',
         'refi-text': '#0468be',
+        'water-refi': '#E7F4FF',
         container: '#F3FAFF',
         primary: {
           50: '#53555e',

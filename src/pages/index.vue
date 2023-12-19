@@ -1,19 +1,18 @@
 <script setup lang="ts">
-import { useRouter } from 'vue-router';
-
-import PoolFeatureSelect from '@/components/inputs/PoolFeatureSelect.vue';
 import TokenSearchInput from '@/components/inputs/TokenSearchInput.vue';
 import FeaturedProtocols from '@/components/sections/FeaturedProtocols.vue';
 import PoolsTable from '@/components/tables/PoolsTable/PoolsTable.vue';
 import usePoolFilters from '@/composables/pools/usePoolFilters';
 import usePools from '@/composables/pools/usePools';
 import useBreakpoints from '@/composables/useBreakpoints';
+import { Goals, trackGoal } from '@/composables/useFathom';
 import useNetwork from '@/composables/useNetwork';
 import LS_KEYS from '@/constants/local-storage.keys';
 import { lsGet, lsSet } from '@/lib/utils';
 import UserInvestedInAffectedPoolAlert from '@/pages/recovery-exit/UserInvestedInAffectedPoolAlert.vue';
 import { useTokens } from '@/providers/tokens.provider';
 import { PoolType } from '@/services/pool/types';
+import useWeb3 from '@/services/web3/useWeb3';
 import { PoolAttributeFilter, PoolTypeFilter } from '@/types/pools';
 import { useIntersectionObserver } from '@vueuse/core';
 
@@ -28,6 +27,7 @@ useIntersectionObserver(featuredProtocolsSentinel, ([{ isIntersecting }]) => {
 /**
  * STATE
  */
+
 const route = useRoute();
 const urlSortParam = route.query?.sort as string | undefined;
 const initSortCol =
@@ -41,7 +41,8 @@ const filterPoolAttributes = ref<PoolAttributeFilter[]>([]);
 /**
  * COMPOSABLES
  */
-const router = useRouter();
+const { startConnectWithInjectedProvider } = useWeb3();
+const { isMobile } = useBreakpoints();
 const { getToken } = useTokens();
 const { appNetworkConfig } = useNetwork();
 const isElementSupported = appNetworkConfig.supportsElementPools;
@@ -56,16 +57,16 @@ const { pools, isLoading, isFetchingNextPage, loadMorePools } = usePools({
   poolAttributes: filterPoolAttributes,
 });
 
-const { upToSmallBreakpoint } = useBreakpoints();
-const { networkSlug, networkConfig } = useNetwork();
+const { networkConfig } = useNetwork();
 
 const isPaginated = computed(() => pools.value.length >= 6);
 
 /**
  * METHODS
  */
-function navigateToCreatePool() {
-  router.push({ name: 'create-pool', params: { networkSlug } });
+function connectWalletHandler() {
+  trackGoal(Goals.ClickNavConnectWallet);
+  startConnectWithInjectedProvider();
 }
 
 function onColumnSort(columnId: string) {
@@ -123,16 +124,6 @@ watch(poolTypeFilter, newPoolTypeFilter => {
               {{ networkConfig.chainName }}
               <span class="lowercase">{{ $t('pools') }}</span>
             </h3>
-            <BalBtn
-              v-if="upToSmallBreakpoint"
-              color="blue"
-              size="sm"
-              outline
-              :class="{ 'mt-4': upToSmallBreakpoint }"
-              @click="navigateToCreatePool"
-            >
-              {{ $t('createAPool.title') }}
-            </BalBtn>
           </div>
 
           <div
@@ -146,23 +137,24 @@ watch(poolTypeFilter, newPoolTypeFilter => {
                     @add="addSelectedToken"
                     @remove="removeSelectedToken"
                   />
-                  <PoolFeatureSelect
-                    v-model:selectedPoolType="poolTypeFilter"
-                    v-model:selectedAttributes="filterPoolAttributes"
-                  />
+                  <TransitionGroup name="pop">
+                    <BalBtn
+                      color="white"
+                      :size="isMobile ? 'md' : 'sm'"
+                      @click="connectWalletHandler"
+                    >
+                      <WalletIcon
+                        class="mr-2"
+                        strokeUrl="url(#pools_gradient)"
+                      />
+                      <span
+                        class="hidden lg:inline-block"
+                        v-text="$t('connectWallet')"
+                      />
+                      <span class="lg:hidden" v-text="$t('connect')" />
+                    </BalBtn>
+                  </TransitionGroup>
                 </BalHStack>
-
-                <BalBtn
-                  v-if="!upToSmallBreakpoint"
-                  color="blue"
-                  size="sm"
-                  outline
-                  :class="{ 'mt-4': upToSmallBreakpoint }"
-                  :block="upToSmallBreakpoint"
-                  @click="navigateToCreatePool"
-                >
-                  {{ $t('createAPool.title') }}
-                </BalBtn>
               </BalHStack>
               <BalHStack spacing="sm">
                 <TransitionGroup name="pop">

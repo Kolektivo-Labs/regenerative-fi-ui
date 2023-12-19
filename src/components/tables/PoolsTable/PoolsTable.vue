@@ -12,33 +12,33 @@ import APRTooltip from '@/components/tooltips/APRTooltip/APRTooltip.vue';
 import useBreakpoints from '@/composables/useBreakpoints';
 import useDarkMode from '@/composables/useDarkMode';
 import useFathom from '@/composables/useFathom';
-import useNumbers from '@/composables/useNumbers';
 import useNetwork from '@/composables/useNetwork';
+import useNumbers from '@/composables/useNumbers';
 import {
   absMaxApr,
   fiatValueOf,
+  isLBP,
   isMigratablePool,
   isStableLike,
   orderedPoolTokens,
   orderedTokenAddresses,
-  totalAprLabel,
-  isLBP,
   shouldHideAprs,
+  totalAprLabel,
 } from '@/composables/usePoolHelpers';
-import { bnum } from '@/lib/utils';
-import { Pool } from '@/services/pool/types';
 import { APR_THRESHOLD, VOLUME_THRESHOLD } from '@/constants/pools';
+import { bnum } from '@/lib/utils';
 import { configService } from '@/services/config/config.service';
+import { Pool } from '@/services/pool/types';
 
-import PoolsTableActionsCell from './PoolsTableActionsCell.vue';
-import TokenPills from './TokenPills/TokenPills.vue';
-import TokensWhite from '@/assets/images/icons/tokens_white.svg';
 import TokensBlack from '@/assets/images/icons/tokens_black.svg';
-import { poolMetadata } from '@/lib/config/metadata';
-import PoolsTableExtraInfo from './PoolsTableExtraInfo.vue';
-import PoolsTableActionSelector from './PoolsTableActionSelector.vue';
+import TokensWhite from '@/assets/images/icons/tokens_white.svg';
 import { PoolAction } from '@/components/contextual/pages/pools/types';
+import { poolMetadata } from '@/lib/config/metadata';
 import useWeb3 from '@/services/web3/useWeb3';
+import PoolsTableActionSelector from './PoolsTableActionSelector.vue';
+import PoolsTableActionsCell from './PoolsTableActionsCell.vue';
+import PoolsTableExtraInfo from './PoolsTableExtraInfo.vue';
+import TokenPills from './TokenPills/TokenPills.vue';
 
 /**
  * TYPES

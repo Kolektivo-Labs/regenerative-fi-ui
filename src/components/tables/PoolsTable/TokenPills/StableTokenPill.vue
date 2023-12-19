@@ -63,7 +63,7 @@ withDefaults(defineProps<Props>(), {
 .pill::before {
   @apply w-full h-full;
   @apply absolute;
-  @apply bg-gray-100 dark:bg-gray-700;
+  @apply bg-water-refi dark:bg-gray-700;
 
   content: '';
   transform: skew(-16deg);
