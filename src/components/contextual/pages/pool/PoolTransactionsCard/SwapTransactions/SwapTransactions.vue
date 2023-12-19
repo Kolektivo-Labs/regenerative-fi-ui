@@ -50,7 +50,7 @@ function loadMorePoolSwaps() {
 </script>
 
 <template>
-  <div class="mb-20">
+  <div class="">
     <h4 class="px-4 lg:px-0 mb-5" v-text="$t('poolTransactions.tabs.swaps')" />
 
     <Table

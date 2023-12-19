@@ -5,10 +5,10 @@ import { useI18n } from 'vue-i18n';
 import { usePoolHelpers } from '@/composables/usePoolHelpers';
 import { Pool } from '@/services/pool/types';
 
+import useWeb3 from '@/services/web3/useWeb3';
 import BoostedActivities from '../BoostedPoolActivities/Activities.vue';
 import Activities from '../PoolActivities/Activities.vue';
 import { PoolTransactionsTab } from '../types';
-import useWeb3 from '@/services/web3/useWeb3';
 
 /**
  * TYPES
@@ -114,7 +114,7 @@ const title = computed((): string => {
       />
     </template>
     <template v-else>
-      <div class="mb-20">
+      <div class="">
         <Activities
           v-if="activeTab === PoolTransactionsTab.ALL_ACTIVITY"
           :poolActivityType="PoolTransactionsTab.ALL_ACTIVITY"

@@ -1,41 +1,40 @@
 <script setup lang="ts">
-import { useRoute } from 'vue-router';
 import {
-  PoolChart,
-  PoolStatCards,
-  PoolTransactionsCard,
   MyPoolBalancesCard,
+  PoolChart,
   PoolCompositionCard,
   PoolContractDetails,
+  PoolStatCards,
+  PoolTransactionsCard,
 } from '@/components/contextual/pages/pool';
-import StakingIncentivesCard from '@/components/contextual/pages/pool/staking/StakingIncentivesCard.vue';
 import PoolLockingCard from '@/components/contextual/pages/pool/PoolLockingCard/PoolLockingCard.vue';
-import ApyVisionPoolLink from '@/components/links/ApyVisionPoolLink.vue';
+import PoolMigrationCard from '@/components/contextual/pages/pool/PoolMigrationCard/PoolMigrationCard.vue';
+import PoolRisks from '@/components/contextual/pages/pool/risks/PoolRisks.vue';
+import StakePreviewModal from '@/components/contextual/pages/pool/staking/StakePreviewModal.vue';
+import StakingIncentivesCard from '@/components/contextual/pages/pool/staking/StakingIncentivesCard.vue';
 import PoolPageHeader from '@/components/pool/PoolPageHeader.vue';
+import BrandedRedirectCard from '@/components/pool/branded-redirect/BrandedRedirectCard.vue';
+import useHistoricalPricesQuery from '@/composables/queries/useHistoricalPricesQuery';
 import usePoolAprQuery from '@/composables/queries/usePoolAprQuery';
 import usePoolSnapshotsQuery from '@/composables/queries/usePoolSnapshotsQuery';
 import {
   isVeBalPool,
-  preMintedBptIndex,
-  usePoolHelpers,
-  tokensListExclBpt,
-  tokenTreeLeafs,
   orderedPoolTokens,
+  preMintedBptIndex,
+  tokenTreeLeafs,
+  tokensListExclBpt,
+  usePoolHelpers,
 } from '@/composables/usePoolHelpers';
-import { useTokens } from '@/providers/tokens.provider';
 import { POOLS } from '@/constants/pools';
 import { includesAddress } from '@/lib/utils';
-import useHistoricalPricesQuery from '@/composables/queries/useHistoricalPricesQuery';
+import { usePool } from '@/providers/local/pool.provider';
+import { providerUserPools } from '@/providers/local/user-pools.provider';
+import { provideUserStaking } from '@/providers/local/user-staking.provider';
+import { useTokens } from '@/providers/tokens.provider';
+import metaService from '@/services/meta/meta.service';
 import { PoolToken } from '@/services/pool/types';
 import useWeb3 from '@/services/web3/useWeb3';
-import BrandedRedirectCard from '@/components/pool/branded-redirect/BrandedRedirectCard.vue';
-import metaService from '@/services/meta/meta.service';
-import PoolMigrationCard from '@/components/contextual/pages/pool/PoolMigrationCard/PoolMigrationCard.vue';
-import StakePreviewModal from '@/components/contextual/pages/pool/staking/StakePreviewModal.vue';
-import PoolRisks from '@/components/contextual/pages/pool/risks/PoolRisks.vue';
-import { usePool } from '@/providers/local/pool.provider';
-import { provideUserStaking } from '@/providers/local/user-staking.provider';
-import { providerUserPools } from '@/providers/local/user-pools.provider';
+import { useRoute } from 'vue-router';
 
 const userStaking = provideUserStaking();
 providerUserPools(userStaking);
@@ -233,17 +232,8 @@ watch(
               :loading="loadingPool"
               :loadingApr="loadingApr"
             />
-            <ApyVisionPoolLink
-              v-if="!loadingPool && pool"
-              :poolId="pool.id"
-              :tokens="titleTokens"
-            />
           </div>
           <div class="mb-4">
-            <h3
-              class="px-4 lg:px-0 mb-3"
-              v-text="$t('poolComposition.title')"
-            />
             <BalLoadingBlock v-if="loadingPool" class="h-64" />
             <PoolCompositionCard v-else-if="pool" :pool="pool" />
           </div>
@@ -317,7 +307,7 @@ watch(
   @apply relative;
 }
 
-@media (min-width: 768px) and (min-height: 600px) {
+@media (width >= 768px) and (height >= 600px) {
   .pool-actions-card {
     @apply sticky top-24;
   }
