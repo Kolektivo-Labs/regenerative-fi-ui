@@ -12,6 +12,7 @@ module.exports = {
     // https://github.com/tailwindlabs/tailwindcss/discussions/10079
     { pattern: /^mr/ },
     { pattern: /^w/ },
+    { pattern: /.*-refi$/, variants: ['text'] },
   ],
   darkMode: 'class',
   theme: {
@@ -81,6 +82,9 @@ module.exports = {
         },
         'primary-refi': '#001C52',
         'accent-refi': '#FA7369',
+        'volumechart-refi': '#FF877E',
+        'feeschart-refi': '#AADA22',
+        'tvlchart-refi': '#0468BE',
         'refi-text': '#0468be',
         'water-refi': '#E7F4FF',
         'modal-bg-refi': '#222732F0',

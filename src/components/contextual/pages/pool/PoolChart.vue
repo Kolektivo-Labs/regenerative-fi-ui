@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { format, addMinutes } from 'date-fns';
+import { addMinutes, format } from 'date-fns';
 import * as echarts from 'echarts/core';
 import { computed, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
@@ -9,11 +9,11 @@ import PoolChartPeriodSelect from '@/components/pool/PoolChartPeriodSelect.vue';
 import useBreakpoints from '@/composables/useBreakpoints';
 import useDarkMode from '@/composables/useDarkMode';
 import useNumbers from '@/composables/useNumbers';
+import { isFx } from '@/composables/usePoolHelpers';
 import useTailwind from '@/composables/useTailwind';
+import { twentyFourHoursInSecs } from '@/composables/useTime';
 import { HistoricalPrices } from '@/services/coingecko/api/price.service';
 import { PoolSnapshot, PoolSnapshots, PoolType } from '@/services/pool/types';
-import { twentyFourHoursInSecs } from '@/composables/useTime';
-import { isFx } from '@/composables/usePoolHelpers';
 import FxPoolWarning from './FxPoolWarning.vue';
 
 /**
@@ -205,7 +205,7 @@ function getTVLData(periodSnapshots: PoolSnapshot[]) {
   }
 
   return {
-    color: [tailwind.theme.colors.blue['600']],
+    color: [tailwind.theme.colors['tvlchart-refi']],
     hoverBorderColor: tailwind.theme.colors.pink['500'],
     hoverColor: darkMode.value
       ? tailwind.theme.colors.gray['900']
@@ -276,7 +276,7 @@ function getFeesData(
       : Number(periodSnapshots[pariodLastSnapshotIdx].swapFees));
 
   return {
-    color: [tailwind.theme.colors.yellow['400']],
+    color: [tailwind.theme.colors['feeschart-refi']],
     chartType: 'bar',
     hoverColor: tailwind.theme.colors.pink['500'],
     data: [
@@ -326,7 +326,7 @@ function getVolumeData(
       : Number(periodSnapshots[pariodLastSnapshotIdx].swapVolume));
 
   return {
-    color: [tailwind.theme.colors.green['400']],
+    color: [tailwind.theme.colors['volumechart-refi']],
     chartType: 'bar',
     hoverColor: tailwind.theme.colors.pink['500'],
     data: [

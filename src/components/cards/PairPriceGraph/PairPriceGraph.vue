@@ -1,14 +1,14 @@
 <script setup lang="ts">
+import { useQuery } from '@tanstack/vue-query';
 import { format, fromUnixTime } from 'date-fns';
 import { Dictionary, mapKeys, mapValues, pickBy, toPairs } from 'lodash';
 import { useI18n } from 'vue-i18n';
-import { useQuery } from '@tanstack/vue-query';
 
 import { useSwapState } from '@/composables/swap/useSwapState';
 import useBreakpoints from '@/composables/useBreakpoints';
 import useTailwind from '@/composables/useTailwind';
-import { useTokens } from '@/providers/tokens.provider';
 import QUERY_KEYS from '@/constants/queryKeys';
+import { useTokens } from '@/providers/tokens.provider';
 import { coingeckoService } from '@/services/coingecko/coingecko.service';
 import useWeb3 from '@/services/web3/useWeb3';
 
