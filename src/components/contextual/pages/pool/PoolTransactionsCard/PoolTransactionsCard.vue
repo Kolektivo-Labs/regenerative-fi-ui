@@ -34,7 +34,7 @@ const { isDeepPool, isStablePhantomPool } = usePoolHelpers(
   <InvestmentTransactions :pool="pool" :loading="loading" />
 
   <SwapTransactions
-    v-if="false || (!isStablePhantomPool && !isDeepPool)"
+    v-if="false && !isStablePhantomPool && !isDeepPool"
     :pool="pool"
     :loading="loading"
   />

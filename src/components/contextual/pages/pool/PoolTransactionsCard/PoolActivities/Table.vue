@@ -8,11 +8,11 @@ import { ColumnDefinition } from '@/components/_global/BalTable/types';
 
 import useBreakpoints from '@/composables/useBreakpoints';
 import useNumbers, { FNumFormats } from '@/composables/useNumbers';
-import { useTokens } from '@/providers/tokens.provider';
+import { preMintedBptIndex } from '@/composables/usePoolHelpers';
 import { bnum } from '@/lib/utils';
+import { useTokens } from '@/providers/tokens.provider';
 import { Pool, PoolActivity, PoolActivityType } from '@/services/pool/types';
 import useWeb3 from '@/services/web3/useWeb3';
-import { preMintedBptIndex } from '@/composables/usePoolHelpers';
 
 /**
  * TYPES
@@ -215,7 +215,7 @@ function getJoinExitDetails(amounts: PoolActivity['amounts']) {
           <template v-for="(tokenAmount, i) in action.tokenAmounts" :key="i">
             <div
               v-if="tokenAmount.amount !== '0'"
-              class="flex items-center p-1 px-2 m-1 bg-gray-50 dark:bg-gray-700 rounded-lg"
+              class="flex items-center p-1 px-2 m-1 dark:bg-gray-700 rounded-lg bg-[#E7F4FF]"
             >
               <BalAsset :address="tokenAmount.address" class="mr-2 shrink-0" />
               <span class="font-numeric">{{ tokenAmount.amount }}</span>
