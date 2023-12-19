@@ -35,6 +35,7 @@ type Props = {
     | 'gradient'
     | 'gradient-reverse'
     | 'gradient-pink-yellow'
+    | 'gradient-blue-lightblue'
     | 'gray'
     | 'red'
     | 'white'
@@ -102,7 +103,7 @@ const bgGradientClasses = computed(() => {
   if (props.outline) return 'bg-transparent hover:bg-gray-50';
 
   let fromColor = 'blue';
-  let toColor = 'pink';
+  let toColor = 'yellow';
 
   if (props.color === 'gradient-reverse') {
     fromColor = 'pink';
@@ -110,6 +111,8 @@ const bgGradientClasses = computed(() => {
   } else if (props.color === 'gradient-pink-yellow') {
     fromColor = 'pink';
     toColor = 'yellow';
+  } else if (props.color === 'gradient-blue-lightblue') {
+    return ` bg-gradient-to-r from-wallet-gradient-start-600 to-wallet-gradient-stop-600 transition-colors`;
   }
 
   if (props.disabled) {

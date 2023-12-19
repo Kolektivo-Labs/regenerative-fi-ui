@@ -1,19 +1,19 @@
 <script setup lang="ts">
-import { computed, toRef } from 'vue';
+import useNetwork, { isGoerli } from '@/composables/useNetwork';
 import {
+  deprecatedDetails,
   isJoinsDisabled,
   usePoolHelpers,
-  deprecatedDetails,
 } from '@/composables/usePoolHelpers';
-import useNetwork, { isGoerli } from '@/composables/useNetwork';
 import { Pool } from '@/services/pool/types';
 import useWeb3 from '@/services/web3/useWeb3';
+import { computed, toRef } from 'vue';
 
-import { Goals, trackGoal } from '@/composables/useFathom';
 import { useDisabledJoinPool } from '@/composables/useDisabledJoinPool';
-import { useTokens } from '@/providers/tokens.provider';
-import { bnum } from '@/lib/utils';
+import { Goals, trackGoal } from '@/composables/useFathom';
 import { usePoolWarning } from '@/composables/usePoolWarning';
+import { bnum } from '@/lib/utils';
+import { useTokens } from '@/providers/tokens.provider';
 import { PoolWarning } from '@/types/pools';
 
 /**
@@ -82,7 +82,7 @@ const joinDisabled = computed((): boolean => {
     <BalBtn
       v-if="!isWalletReady"
       :label="$t('connectWallet')"
-      color="gradient"
+      color="gradient-blue-lightblue"
       block
       @click="startConnectWithInjectedProvider"
     />

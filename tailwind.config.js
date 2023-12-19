@@ -86,6 +86,12 @@ module.exports = {
         'modal-bg-refi': '#222732F0',
         'apr-bg': '#CEE9FF',
         container: '#F3FAFF',
+        'wallet-gradient-start': {
+          600: '#05DBF3',
+        },
+        'wallet-gradient-stop': {
+          600: '#0468BE',
+        },
         primary: {
           50: '#53555e',
           100: '#494b54',
