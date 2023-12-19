@@ -108,7 +108,7 @@ defineExpose({ hide });
 }
 
 .modal-bg {
-  @apply absolute h-full w-full bg-black/90;
+  @apply absolute h-full w-full bg-modal-bg-refi;
 }
 
 .modal-card {
@@ -125,10 +125,7 @@ defineExpose({ hide });
   width: 100%;
   height: 100%;
   position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
+  inset: 0;
   z-index: 0;
   filter: blur(80px);
   transform: translateZ(-1px);

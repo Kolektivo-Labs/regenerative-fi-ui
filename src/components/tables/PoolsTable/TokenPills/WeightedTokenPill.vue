@@ -83,11 +83,11 @@ withDefaults(defineProps<Props>(), {
 }
 
 .pill-selected {
-  @apply ring-2 ring-blue-500 dark:ring-blue-400;
+  @apply ring-2 ring-refi-text dark:ring-blue-400;
 }
 
 .pill-picked {
-  @apply bg-blue-50 dark:bg-blue-500 dark:bg-opacity-20;
+  @apply bg-blue-50 dark:bg-refi-text dark:bg-opacity-20;
 }
 
 .pill-weight {
