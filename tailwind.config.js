@@ -84,6 +84,7 @@ module.exports = {
         'refi-text': '#0468be',
         'water-refi': '#E7F4FF',
         'modal-bg-refi': '#222732F0',
+        'apr-bg': '#CEE9FF',
         container: '#F3FAFF',
         primary: {
           50: '#53555e',

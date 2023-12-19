@@ -69,7 +69,7 @@ const totalLabel = computed((): string =>
     </template>
     <div class="text-sm divide-y dark:divide-gray-900">
       <div
-        class="px-3 pt-3 pb-1 bg-gray-50 dark:bg-gray-800 rounded-t"
+        class="px-3 pt-3 pb-1 bg-apr-bg dark:bg-gray-800 rounded-t"
         data-testid="total-apr"
       >
         <div class="text-secondary">
