@@ -395,19 +395,6 @@
     "type": "function"
   },
   {
-    "inputs": [],
-    "name": "getTierThresholds",
-    "outputs": [
-      {
-        "internalType": "uint256[]",
-        "name": "tierThresholds",
-        "type": "uint256[]"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
     "inputs": [
       {
         "internalType": "address",
