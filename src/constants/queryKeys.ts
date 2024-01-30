@@ -290,9 +290,6 @@ const QUERY_KEYS = {
       endTime: number
     ) => ['swaps', 'week', { networkId, account, startTime, endTime }],
   },
-  Balancers: {
-    Pools: (networkId: Ref<Network>) => ['balancers', 'pools', { networkId }],
-  },
 };
 
 export default QUERY_KEYS;
